@@ -46,7 +46,7 @@ const server = http.createServer((req, res) => {
         the http module and node handle that for us
         */
 
-        const homePageHTML = fs.readFileSync('node.html');
+        const homePageHTML = fs.readFileSync('node.html'); 
         res.write(homePageHTML);
         /* Finally we state that we are ready to reply and close the connection */
 
