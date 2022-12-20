@@ -1,0 +1,19 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+    const ourRequest = $.ajax({
+        method: "POST",
+        url: "http://localhost:3000/ajax",
+        dataType: 'json',
+        data: {
+            name: 'Aldo',
+            age: 27,
+            hobbies: ['exercise', 'eating', 'videogames']
+        }
+    });
+    ourRequest.then((response, statusCode, xmlhttp) => { 
+        console.log(response);
+        console.log(statusCode);
+        console.log(xmlhttp);
+    });
+</script>

@@ -1,0 +1,20 @@
+<h1>HBS rendered file</h1>
+
+<h2>The message is: {{msg}}</h2>
+
+{{{html}}}
+
+<p>Country name: {{country.name}}</p>
+<p>Country capital: {{country.capital}}</p>
+
+<!-- An HTML comment -->
+
+{{!-- A Handlebar comment --}}
+
+<ol>
+{{#each hobbies}}
+    {{#if this.recurrent}}
+        <li>{{this.type}} - {{this.activity}}</li>
+    {{/if}}
+{{/each}}
+</ol>
