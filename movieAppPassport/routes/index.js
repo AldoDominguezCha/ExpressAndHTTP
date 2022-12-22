@@ -1,5 +1,7 @@
 var express = require('express');
 const axios = require('axios');
+const passport = require('passport');
+
 var router = express.Router();
 
 const apiKey = '1fb720b97cc13e580c2c35e1138f90f8';
@@ -12,8 +14,10 @@ router.use((req, res, next) => {
   next();
 });
 
-/* GET home page. */
 router.get('/', async function(req, res, next) {
+
+  console.log('Passport user data');
+  console.log(req.user);
 
   let data = {};
   
@@ -32,6 +36,17 @@ router.get('/', async function(req, res, next) {
 
   res.render('index', { parsedData: data.results });
 });
+
+router.get('/login', passport.authenticate('github'));
+
+router.get('/my_user_info', (req, res, next) => {
+  res.json({ displayName: req.user.displayName })
+});
+
+router.get('/auth', passport.authenticate('github', {
+  successRedirect: '/',
+  failureRedirect: '/loginFailed'
+}));
 
 router.get('/movie/:id', async (req, res, next) => {
 
