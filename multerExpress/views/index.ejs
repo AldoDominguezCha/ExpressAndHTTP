@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form method="post" action="/formsub" enctype="multipart/form-data">
+      <input type="text" placeholder="Filename" name="desc"/>
+      <input type="file" name="upload"/>
+      <button type="submit">Upload</button>
+    </form>
+    <br></br>
+    <form method="post" action="/formsubarray" enctype="multipart/form-data">
+      <input type="text" placeholder="Filename" name="desc"/>
+      <input type="file" name="upload"/>
+      <input type="file" name="upload"/>
+      <button type="submit">Upload</button>
+    </form>
+  </body>
+</html>
